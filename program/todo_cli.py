@@ -8,17 +8,17 @@ except FileNotFoundError:
      pass
 
 def main():
-    showMenu()
-    handleTask()
+    show_menu()
+    handle_task()
     
 
-def handleTask():
+def handle_task():
             while True:
                 choice = int(input("enter choice: "))
                 if choice == 1:
                     task = input("enter task: ")
                     todos.append(task)
-                    saveTodos()
+                    save_todos()
                     print("todo added!")
                 
                 elif choice == 2:
@@ -32,12 +32,12 @@ def handleTask():
                     print("goodbye")
                     break
                     
-def showMenu():
+def show_menu():
     print("1. add todo")
     print("2. view todo")
     print("3. exit")
 
-def saveTodos():
+def save_todos():
      with open("todos.txt", "w") as file:
           for todo in todos:
                file.write(todo + "\n")
