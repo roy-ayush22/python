@@ -1,5 +1,7 @@
 def main():
-    def findFactorial():
+    findFactorial()
+
+def findFactorial():
         num = int(input("Number: "))
         if num == 1 or num == 0:
             print("Factorial: 1")
@@ -10,6 +12,5 @@ def main():
             for i in range(num, 0, -1):
                 result = result * i
             print(f"Factorial: {result}")
-    findFactorial()
 
 main()
