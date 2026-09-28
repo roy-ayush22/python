@@ -1,39 +1,62 @@
-class Student:
-    def __init__(self, name, age, grade) -> None:
+# python oop - inheritance
+class Pet:
+    def __init__(self, name, age):
         self.name = name
         self.age = age
-        self.grade = grade
 
-    def get_grade(self):
-        return self.grade
+    def speak(self):
+        print("i don't know what to say")
 
-class Course:
-    def __init__(self, name, max_students) -> None:
+    def show(self):
+        print(f"i am {self.name}, i'm {self.age} years old")
+
+
+class Fish(Pet):
+    pass
+
+class Dog(Pet):
+    def __init__(self, name, age, color):
+        super().__init__(name, age)
+        self.color = color
+
+    def show(self):
+        print(f"i'm {self.name}, i'm {self.age} years old and i am {self.color}")
+
+    def speak(self):
+        print("bark")
+
+class Cat(Pet):
+    def speak(self):
+        print("meow ")
+
+
+d = Dog("bill", 12, "white")
+d.show()
+
+
+p = Pet("tim", 12)
+p.show()
+
+d = Dog("lil", 9, "brown")
+d.show()
+
+c = Cat("lola", 7)
+c.show()
+
+f = Fish("bubble", 21)
+f.speak()
+
+
+# class attributes
+class Person:
+    number_of_people = 10
+
+    def __init__(self, name) -> None:
         self.name = name
-        self.max_students = max_students
-        self.students = []
-
-    def add_students(self, student):
-        if len(self.students) <self.max_students:
-            self.students.append(student)
-            return True
-        return False
-
-    def get_average_grade(self):
-        marks = 0
-        for student in self.students:
-            marks += student.get_grade()
-
-        return marks / len(self.students)
+        Person.number_of_people += 1
 
 
-s1 = Student("ayush", 21, 81)
-s2 = Student("gojo", 28, 98)
-
-course = Course("physics", 2)
-
-course.add_students(s1)
-course.add_students(s2)
-# print(course.students[0].grade)
-
-print(course.get_average_grade())
+p1 = Person("ayush")
+print(p1.number_of_people)
+p2 = Person("gojo")
+print(Person.number_of_people)
